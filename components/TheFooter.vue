@@ -3,10 +3,10 @@ const currentYear = new Date().getFullYear()
 </script>
 
 <template>
-  <footer>
+  <footer class="container mx-auto p-4">
     <Divider class="mt-12 mb-4" />
     <p class="small">
-      Copyright © {{ currentYear }} Heavy Petting. All Rights Reserved.
+      Copyright © {{ currentYear }} Company Name. All Rights Reserved.
     </p>
   </footer>
 </template>

@@ -1,15 +1,5 @@
 <script setup>
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '~/tailwind.config'
-
-import { $dt } from '@primeuix/themes'
-
 const { setDarkMode, setLightMode, isDarkMode } = useDarkMode()
-
-const fullConfig = resolveConfig(tailwindConfig)
-const jsScreenSize = ref(fullConfig.theme.screens)
-
-const primaryColor = $dt('primary.color')
 
 const checked = ref(false)
 const cities = ref([
@@ -24,9 +14,8 @@ const cities = ref([
   { name: 'Moscow', code: 'MSC' },
   { name: 'Beijing', code: 'BJS' }
 ])
-const date = ref(new Date())
+
 const ingredient = ref('Cheese')
-//const isDarkMode = useIsDarkMode()
 const options = ref(['Long', 'Medium', 'Short'])
 const selectButtonValue = ref('Medium')
 const selectedCity = ref()
@@ -36,7 +25,7 @@ const valueNumber = ref(12345)
 </script>
 
 <template>
-  <div class="container p-4">
+  <div class="container px-4">
     <Head>
       <Title>Styleguide</Title>
     </Head>
@@ -45,87 +34,20 @@ const valueNumber = ref(12345)
       <i v-if="isDarkMode" @click="setLightMode" class="pi pi-sun clickable" />
       <i v-else @click="setDarkMode" class="pi pi-moon clickable mr-2" />
     </h1>
-    <p>{{ isDarkMode ? ' (Dark Mode)' : ' (Light Mode)' }}</p>
-    <p class="dark:bg-primary-600">Tailwind dark mode has a blue background</p>
-
-    <div class="dark-mode">
-      <p class="dark:bg-primary-600">force dark mode</p>
-    </div>
-    <p class="im-test">
-      Include-media example for css media queries less than md will be primary
-      blue
-    </p>
-
-    <p>
-      responsive size =
-      <span class="inline sm:hidden">xs</span>
-      <span class="hidden sm:inline md:hidden">sm</span>
-      <span class="hidden md:inline lg:hidden">md</span>
-      <span class="hidden lg:inline xl:hidden">lg</span>
-      <span class="hidden xl:inline xxl:hidden">xl</span>
-      <span class="hidden xxl:inline">xxl</span>
-    </p>
-    <p>Javascript access to the Tailwind responsive sizes in the config=</p>
-    <pre>{{ jsScreenSize }}</pre>
-    <p>Javascript access to the PrimeVue theme primary color=</p>
-    <p>
-      light: <span>{{ primaryColor.value.light.value }}</span>
-    </p>
-    <p>
-      dark: <span>{{ primaryColor.value.dark.value }}</span>
-    </p>
-
-    <h2>Context menu (Right-click/long press)</h2>
-    <ContextMenuExample />
-
-    <p class="reduce-to-three-lines mt-4">
-      This paragraph will truncated to three lines. Lorem ipsum dolor sit amet
-      consectetur adipisicing elit. Fuga ex quisquam vero sunt exercitationem
-      pariatur sint, qui minus ut eos repellat reprehenderit dolorum delectus
-      officia, sapiente consequatur corporis reiciendis ratione. Lorem ipsum
-      dolor sit amet, consectetur adipisicing elit. Unde quia placeat fuga
-      dolorem libero sint molestias, vel voluptas incidunt omnis nisi ratione
-      aliquam alias cupiditate natus? Numquam rem possimus omnis. Lorem ipsum
-      dolor sit amet consectetur adipisicing elit. Tempore, libero a explicabo
-      harum ab necessitatibus in eligendi repellat aut quae non aspernatur,
-      excepturi eveniet. Rerum sapiente earum molestiae magnam quasi? Lorem
-      ipsum dolor, sit amet consectetur adipisicing elit. Quam eaque quod
-      provident nihil, praesentium sed tenetur, doloribus officia placeat
-      molestias quibusdam corrupti. Nam qui doloribus temporibus commodi? Nam,
-      fugit quae.
-    </p>
-
-    <TruncatedText class="mt-6" :lines="2">
-      <template #content>
-        <p>
-          This paragraph will truncated to three lines. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Fuga ex quisquam vero sunt
-          exercitationem pariatur sint, qui minus ut eos repellat reprehenderit
-          dolorum delectus officia, sapiente consequatur corporis reiciendis
-          ratione. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Unde quia placeat fuga dolorem libero sint molestias, vel voluptas
-          incidunt omnis nisi ratione aliquam alias cupiditate natus? Numquam
-          rem possimus omnis. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Tempore, libero a explicabo harum ab necessitatibus in eligendi
-          repellat aut quae non aspernatur, excepturi eveniet. Rerum sapiente
-          earum molestiae magnam quasi? Lorem ipsum dolor, sit amet consectetur
-          adipisicing elit. Quam eaque quod provident nihil, praesentium sed
-          tenetur, doloribus officia placeat molestias quibusdam corrupti. Nam
-          qui doloribus temporibus commodi? Nam, fugit quae
-        </p>
-      </template>
-      <template #button="slotProps">
-        <div class="text-center">
-          <Button
-            :label="`${slotProps.isExpanded ? 'Read less' : 'Read more'}`"
-            class="mt-2"
-            @click="slotProps.toggleExpand"
-          />
-        </div>
-      </template>
-    </TruncatedText>
 
     <Divider class="my-7" />
+
+    <p class="mb-4">
+      Color Mode: {{ isDarkMode ? ' Dark Mode' : ' Light Mode' }}
+    </p>
+    <div class="dark-mode">
+      <p class="dark:bg-primary-600">
+        use class="dark-mode" to force dark mode
+      </p>
+    </div>
+
+    <Divider class="my-7" />
+
     <h1 class="mb-3">H1 Lorem Ipsum Dolor Sit Amet</h1>
     <h2 class="mb-3">H2 Lorem Ipsum Dolor Sit Amet</h2>
     <h3 class="mb-3">H3 Lorem Ipsum Dolor Sit Amet</h3>
