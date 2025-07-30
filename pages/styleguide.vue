@@ -37,18 +37,7 @@ const valueNumber = ref(12345)
 
     <Divider class="my-7" />
 
-    <p class="mb-4">
-      Color Mode: {{ isDarkMode ? ' Dark Mode' : ' Light Mode' }}
-    </p>
-    <div class="dark-mode">
-      <p class="dark:bg-primary-600">
-        use class="dark-mode" to force dark mode
-      </p>
-    </div>
-
-    <Divider class="my-7" />
-
-    <h1 class="mb-3">H1 Lorem Ipsum Dolor Sit Amet</h1>
+    <h1 class="mb-3">H1 Lorem Ipsum Dolor</h1>
     <h2 class="mb-3">H2 Lorem Ipsum Dolor Sit Amet</h2>
     <h3 class="mb-3">H3 Lorem Ipsum Dolor Sit Amet</h3>
     <h4 class="mb-3">H4 Lorem Ipsum Dolor Sit Amet</h4>
@@ -73,6 +62,18 @@ const valueNumber = ref(12345)
       Here is some <strong>bold text</strong> and some <em>italic text</em>.
     </p>
     <p class="mb-3 small">Here is a paragraph with small text.</p>
+    <Divider class="my-7" />
+
+    <div class="flex gap-4 mb-3">
+      <div class="bg-blue w-32 h-32"></div>
+      <div class="bg-orange w-32 h-32"></div>
+      <div class="bg-green w-32 h-32"></div>
+      <div class="bg-purple w-32 h-32"></div>
+      <div class="bg-red w-32 h-32"></div>
+      <div class="bg-light-gray w-32 h-32"></div>
+      <div class="bg-dark-gray w-32 h-32"></div>
+    </div>
+
     <Divider class="my-7" />
 
     <div class="mb-3">
@@ -148,52 +149,38 @@ const valueNumber = ref(12345)
       </div>
     </div>
     <Textarea v-model="value" rows="5" cols="30" class="mb-3" />
-    <div class="flex justify-center mb-3">
-      <SelectButton v-model="selectButtonValue" :options="options" />
-    </div>
-    <ToggleSwitch v-model="checked" />
+    <ToggleSwitch v-model="checked" class="block" />
     <divider class="my-7" />
-    <Button label="Example Button" class="block mb-3" />
-    <Button icon="pi pi-home" label="Button With Icon" class="mb-3 mr-2" />
-    <Button
-      icon="pi pi-check"
-      label="Button With Icon"
-      iconPos="right"
-      class="mb-3 mr-2"
-    />
-    <Button icon="pi pi-heart" aria-label="Favorite" />
-    <Button label="Outlined Button" class="block mb-3" variant="outlined" />
-    <Button
-      label="Loading State"
-      icon="pi pi-check"
-      :loading="true"
-      class="mb-3"
-    />
-    <Button label="Disabled" disabled class="block mb-3" />
-    <Button label="small button" size="small" class="mr-2" />
-    <Button icon="pi pi-external-link" size="small" class="mb-3" />
-    <Button
-      label="Small Outlined Button"
-      class="block mb-3"
-      size="small"
-      variant="outlined"
-    />
-    <Tag value="Primary"></Tag>
-    <Tag severity="secondary" value="Secondary"></Tag>
-    <Tag severity="success" value="Success"></Tag>
-    <Tag severity="info" value="Info"></Tag>
-    <Tag severity="warn" value="Warn"></Tag>
-    <Tag severity="danger" value="Danger"></Tag>
-    <Tag severity="contrast" value="Contrast"></Tag>
+    <div class="flex gap-2 mt-6 mb-4">
+      <Button label="Example Button" />
+      <Button icon="pi pi-home" label="Button With Icon" />
+      <Button icon="pi pi-check" label="Button With Icon" iconPos="right" />
+      <Button icon="pi pi-heart" aria-label="Favorite" />
+      <Button label="Outlined Button" variant="outlined" />
+    </div>
+    <div class="flex gap-2 mb-4">
+      <Button label="Loading State" icon="pi pi-check" :loading="true" />
+      <Button label="Disabled" disabled />
+    </div>
+    <div class="flex gap-2 mb-4">
+      <Button label="small button" size="small" />
+      <Button icon="pi pi-external-link" size="small" />
+      <Button label="Small Outlined Button" size="small" variant="outlined" />
+    </div>
+    <divider class="my-7" />
+    <div class="flex gap-2 mt-6">
+      <Tag value="Primary Tag"></Tag>
+      <Tag icon="pi pi-user" value="With Icon"></Tag>
+      <Tag severity="contrast" value="Contrast Tag"></Tag>
+    </div>
     <divider class="my-7" />
     <ProgressSpinner class="mb-3" />
-    <Rating v-model="starRating" class="mb-3" />
-    <Card style="width: 400px" class="mb-3">
+    <Card class="w-96 mb-3">
       <template #header>
-        <img alt="user header" src="https://picsum.photos/400/300?grayscale" />
+        <img alt="user header" src="https://placehold.co/600x300" />
       </template>
-      <template #title>Card Example</template>
-      <template #subtitle>This is the card subtitle</template>
+      <template #title>Card Example</template
+      ><template #subtitle>Card subtitle</template>
       <template #content>
         <p class="m-0">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
@@ -203,8 +190,9 @@ const valueNumber = ref(12345)
         </p>
       </template>
       <template #footer>
-        <div class="flex gap-4 mt-2">
+        <div class="flex gap-4">
           <Button label="Learn More" />
+          <Button label="Cancel" class="block mb-3" variant="outlined" />
         </div>
       </template>
     </Card>

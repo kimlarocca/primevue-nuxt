@@ -6,9 +6,9 @@ import Aura from '@primeuix/themes/aura'
 import {
     definePreset
 }
-    from "@primeuix/themes"
+from "@primeuix/themes"
 
-const MyPreset = definePreset(Aura, {
+const MyPreset = definePreset( Aura, {
     primitive: {},
     semantic: {
         primary: {
@@ -25,19 +25,19 @@ const MyPreset = definePreset(Aura, {
             950: "{sky.950}",
         },
         colorScheme: {
-            light: {
-                text: {
-                    color: "{surface.950}",
-                }
-            },
-            dark: {
-                text: {
-                    color: "{surface.0}",
-                }
-            }
+            // light: {
+            //     text: {
+            //         color: "{surface.950}",
+            //     }
+            // },
+            // dark: {
+            //     text: {
+            //         color: "{surface.0}",
+            //     }
+            // }
         }
     },
     components: {},
-})
+} )
 
 export default MyPreset
